@@ -1,0 +1,13 @@
+{
+  "name": "Barbee Hotel & Restaurant",
+  "short_name": "Barbee Hotel",
+  "description": "Lakeside dining between Big and Little Barbee Lakes since 1897.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#16283a",
+  "theme_color": "#16283a",
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

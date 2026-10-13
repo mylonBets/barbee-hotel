@@ -1,0 +1,6 @@
+.netlify/
+dist/
+preview/
+incoming/
+*.zip
+.DS_Store
