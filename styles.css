@@ -4,24 +4,28 @@
    ========================================================= */
 
 :root{
-  --navy:#16283a;
-  --navy-2:#1b2f42;
-  --night:#101d2b;
+  /* Dark throughout. --sand is a LIGHT value used as TEXT on dark
+     surfaces, so it stays light. Backgrounds come from --bg*. */
+  --bg:#0f1a26;
+  --bg-2:#16232f;
+  --band-dark:#0a131c;
+  --band-night:#060d14;
+  --navy:#0b1520;
 
-  --ink:#1c2630;
-  --ink-2:#4e5b67;
-  --muted:#7f8c97;
+  --ink:#f3ede2;
+  --ink-2:#a9b5c0;
+  --muted:#8a95a1;
 
   --sand:#f8f4ed;
   --sand-2:#f1ebe1;
-  --line:#e3dacc;
-  --line-dark:rgba(222,206,178,.16);
+  --line:rgba(216,189,138,.16);
+  --line-dark:rgba(222,206,178,.13);
 
-  --gold:#a8854c;        /* decorative / dark bands */
-  --gold-ink:#866a3c;    /* small text on sand, AA */
-  --gold-lt:#d8bd8a;
-  --muted-ink:#66717a;   /* small text on sand, AA */
-  --ember:#b1552c;
+  --gold:#c9a45c;
+  --gold-ink:#d8bd8a;
+  --gold-lt:#e3c893;
+  --muted-ink:#97a2ae;
+  --ember:#c4602f;
 
   --rail:340px;
   --serif:'Cormorant Garamond','Hoefler Text',Georgia,serif;
@@ -33,7 +37,7 @@ html{scroll-behavior:smooth;}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{animation:none!important;transition:none!important;}}
 
 body{
-  margin:0;background:var(--sand);color:var(--ink);
+  margin:0;background:var(--bg);color:var(--ink);
   font-family:var(--sans);font-size:16.5px;line-height:1.78;letter-spacing:.004em;
   -webkit-font-smoothing:antialiased;
 }
@@ -111,7 +115,7 @@ a{color:inherit;}
 .eyebrow{margin:0 0 1rem;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:var(--gold-ink);}
 .band--dark .eyebrow,.band--night .eyebrow,.eyebrow--light{color:var(--gold-lt);}
 /* ---------- HERO ---------- */
-.hero{position:relative;background:var(--navy);min-height:clamp(540px,86vh,860px);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;}
+.hero{position:relative;background:var(--bg);min-height:clamp(540px,86vh,860px);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;}
 .hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;}
 .hero__scrim{
   position:absolute;inset:0;
@@ -139,36 +143,36 @@ a{color:inherit;}
 .proof span{font-size:.76rem;letter-spacing:.06em;color:rgba(248,244,237,.62);line-height:1.45;}
 
 /* ---------- SIGNATURE LAKE BAND ---------- */
-.horizon{line-height:0;background:var(--navy);}
+.horizon{line-height:0;background:var(--bg);}
 .horizon svg{width:100%;height:clamp(110px,14vw,190px);display:block;}
 
 /* ---------- BUTTONS ---------- */
 .btn{display:inline-block;text-decoration:none;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;padding:.95rem 1.8rem;border-radius:2px;transition:background .18s,color .18s,border-color .18s;}
 .btn--solid{background:var(--ember);color:#fff;}
 .btn--solid:hover{background:#9c4825;}
-.btn--ghost{border:1px solid var(--line);color:var(--ink-2);}
-.btn--ghost:hover{border-color:var(--ink);color:var(--ink);}
+.btn--ghost{border:1px solid rgba(216,189,138,.4);color:var(--gold-ink);}
+.btn--ghost:hover{border-color:var(--gold-lt);color:#fff;}
 .band--dark .btn--ghost,.hero .btn--ghost{border-color:rgba(222,206,178,.45);color:var(--gold-lt);}
 .band--dark .btn--ghost:hover,.hero .btn--ghost:hover{border-color:var(--gold-lt);color:#fff;}
 .btn--gold{border:1px solid var(--gold);color:var(--gold-lt);}
 .btn--gold:hover{background:var(--gold);color:var(--navy);}
 
 /* ---------- BANDS ---------- */
-.band{position:relative;padding:clamp(4rem,7.5vw,7rem) clamp(1.6rem,5vw,5rem);border-bottom:1px solid var(--line);}
+.band{position:relative;padding:clamp(4.5rem,8vw,7.5rem) clamp(1.6rem,5vw,5rem);border-bottom:1px solid rgba(216,189,138,.10);}
 .band--dark{
   background:
     radial-gradient(120% 70% at 18% 0%, rgba(177,85,44,.13) 0%, rgba(177,85,44,0) 58%),
     radial-gradient(90% 60% at 95% 100%, rgba(168,133,76,.10) 0%, rgba(168,133,76,0) 60%),
-    var(--navy);
+    var(--band-dark);
   color:var(--sand);border-bottom:none;
 }
 .band--night{
   background:
     radial-gradient(85% 55% at 80% 6%, rgba(177,85,44,.16) 0%, rgba(177,85,44,0) 62%),
-    var(--night);
+    var(--band-night);
   color:var(--sand);border-bottom:none;
 }
-.band--story{background:var(--sand-2);}
+.band--story{background:var(--bg-2);}
 .band--last{padding-bottom:0;}
 
 .band__head{max-width:60ch;margin-bottom:3.4rem;position:relative;}
@@ -202,7 +206,7 @@ a{color:inherit;}
 .feature__main img{aspect-ratio:4/3;}
 .feature--even .feature__main img,.feature--even .feature__side img{aspect-ratio:4/3;}
 .feature__side img{flex:1 1 auto;min-height:0;}
-.feature figcaption{margin-top:.8rem;flex:0 0 auto;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-ink);}
+.feature figcaption{margin-top:.85rem;flex:0 0 auto;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-ink);}
 .band--dark .feature figcaption{color:rgba(248,244,237,.45);}
 
 /* ---------- MENU ---------- */
@@ -419,31 +423,33 @@ a{color:inherit;}
    cream #f0f0d8, red #d81818, amber #d8a848, teal #489090.
    ========================================================= */
 body.brand-dannys{
-  --navy:#1c1714;          /* warm near black instead of the hotel's cool navy */
-  --navy-2:#241d19;
-  --night:#120f0d;
+  --bg:#16120f;            /* warm near black, not the hotel's cool navy */
+  --bg-2:#1d1815;
+  --band-dark:#110e0b;
+  --band-night:#0b0908;
+  --navy:#120f0c;          /* the rail */
   --sand:#f6f3e6;
   --sand-2:#efebdb;
-  --line:#ddd6c2;
-  --line-dark:rgba(240,240,216,.16);
-  --gold:#c08a2e;
-  --gold-ink:#8a6220;      /* AA on the cream */
-  --gold-lt:#e8c070;
-  --ember:#b81f1f;         /* their red, darkened to clear AA on white */
-  --muted-ink:#6b6358;
-  --ink:#241f1a;
-  --ink-2:#554d44;
+  --line:rgba(240,240,216,.15);
+  --line-dark:rgba(240,240,216,.12);
+  --gold:#d8a848;
+  --gold-ink:#e8c070;
+  --gold-lt:#f0cf85;
+  --ember:#cf2626;         /* their red */
+  --muted-ink:#9e948a;
+  --ink:#f6f3e6;
+  --ink-2:#b8aea3;
 }
 body.brand-dannys .band--dark{
   background:
-    radial-gradient(120% 70% at 18% 0%, rgba(184,31,31,.16) 0%, rgba(184,31,31,0) 58%),
+    radial-gradient(120% 70% at 18% 0%, rgba(207,38,38,.17) 0%, rgba(207,38,38,0) 58%),
     radial-gradient(90% 60% at 95% 100%, rgba(216,168,72,.12) 0%, rgba(216,168,72,0) 60%),
-    var(--navy);
+    var(--band-dark);
 }
 body.brand-dannys .band--night{
   background:
-    radial-gradient(85% 55% at 80% 6%, rgba(184,31,31,.20) 0%, rgba(184,31,31,0) 62%),
-    var(--night);
+    radial-gradient(85% 55% at 80% 6%, rgba(207,38,38,.20) 0%, rgba(207,38,38,0) 62%),
+    var(--band-night);
 }
 body.brand-dannys .hero__scrim{
   background:
