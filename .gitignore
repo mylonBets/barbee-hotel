@@ -4,3 +4,4 @@ preview/
 incoming/
 *.zip
 .DS_Store
+NOTES.md
