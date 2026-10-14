@@ -1,16 +1,29 @@
-# Barbee Hotel & Restaurant — website
+# Barbee Hotel & Danny's Sports Bar
 
-Static site. No build step. `index.html` + `styles.css` + `assets/`.
+Static site, no framework. `sh build.sh` assembles `dist/`, which is what ships.
 
-**Structure:** fixed left "front desk" rail (identity, hours, phone, nav) beside a
-scrolling content pane. Collapses to a compact header plus a sticky call bar under 980px.
+## Three pages
+| URL | What | Look |
+|---|---|---|
+| `/` | The door. Pick which business you want. | Navy, both photos side by side |
+| `/hotel/` | Barbee Hotel dining room, **downstairs** | Navy + gold, Cormorant |
+| `/dannys/` | Danny's Sports Bar & Pizza, **upstairs, with the deck** | Charcoal + red, from their own logo |
 
-**Palette:** navy `#16283a`, sand `#f8f4ed`, gold `#a8854c`, ember `#b1552c`.
-Display face Marcellus, body Karla.
+One stylesheet. Danny's is a `body.brand-dannys` theme that re-points the CSS
+variables, so both sites share every component and stay in sync.
+`site.js` is shared and tolerates elements a given page does not have.
 
-## Sections
-Hero · lake horizon band · Between Two Lakes · The Dining Room · Danny's Sports Bar
-(full menu + weekly specials) · History · Gallery · Gatherings · Find Us + map
+## FACTS THE CLIENT CORRECTED. Do not re-break these.
+1. **No rooms.** The hotel does not rent rooms any more. No room content anywhere.
+2. **The dining room is DOWNSTAIRS. Danny's is UPSTAIRS.** This was backwards in an
+   earlier version and had to be swapped across every page.
+3. **There are two separate kitchens**, one per floor. Danny's is not the dining room's
+   menu reheated, and the copy no longer says it is.
+4. **The deck belongs to Danny's, upstairs.** The downstairs dining room has no outdoor
+   seating as far as we know.
+5. **No boat dock claim.** Earlier copy said there was a dock on Little Barbee, sourced
+   from a listing rather than the client. Unconfirmed, so it is gone from all three
+   pages and `llms.txt` tells summarisers not to claim it.
 
 ## Where the content came from
 Everything factual is pulled from barbee-hotel.com, their own gallery, and the Indiana
@@ -132,3 +145,29 @@ eager loaded and reveals settled, for screenshots.
 Drag the folder into Netlify, or connect the repo. `netlify.toml` sets the publish dir,
 long cache on `/assets/*`, and no-cache on `index.html`. The `preview/` folder is only
 reference renders and `incoming/` is a photo inbox. Neither needs to ship.
+
+## STILL TO CONFIRM WITH THE CLIENT
+- **Is there a dock?** Removed for now. If there is one, it goes straight back in; it is
+  a strong draw on a lake.
+- **Deck months.** Copy says "opens with the weather". Ask for the real season.
+- **Danny's days.** Danny's advertises a Monday special but the dining room is shut
+  Sunday and Monday. Does Danny's open on days the dining room does not?
+- **Which bar is in which photo.** `dannys-bar.jpg` and `dannys-taps.jpg` came from the
+  *Barbee* gallery on the old site, not the Danny's one. With two bars on two floors,
+  they may be the downstairs bar mislabelled. Worth one look from someone who knows.
+- **Ratings are hardcoded**: hotel 4.5 / 504, Danny's 4.4 / 441, from Google. Recheck
+  before launch and every few months.
+- **Still no exterior photo, no deck photo, no dining room wide shot.** The deck photo
+  is now the most valuable missing asset, because the deck has its own section.
+
+## Ideas worth pitching for Danny's
+These are not on the site, they are things the site is now built to hold:
+- **Deck opening day** as an actual event. A lake bar's deck opening is a date people
+  will turn up for, and it is free to promote.
+- **Karaoke needs a face.** Friday and Saturday is the strongest recurring draw on
+  either floor. A host name and a start time would make it bookable in people's heads.
+- **A boat-in special**, if the dock turns out to be real.
+- **Deck + sunset photos.** One good golden hour shot of the deck would carry the whole
+  page, and would also be the best thing they could post all summer.
+- **Bingo night has a night but no detail.** Start time, prizes, whether you need to
+  sign up. Same for taco night and Italian beef.
